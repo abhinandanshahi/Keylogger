@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Video Monitoring System</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<!-- Custom CSS -->
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f5f5f5;
+			margin: 0;
+			padding: 0;
+		}
+		header {
+			background-color: #008CBA;
+			color: #fff;
+			padding: 20px;
+			text-align: center;
+			font-size: 2rem;
+			margin-bottom: 30px;
+		}
+		.container {
+			max-width: 800px;
+			margin: 0 auto;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			flex-wrap: wrap;
+		}
+		.container button {
+			background-color: #008CBA;
+			border: none;
+			color: white;
+			padding: 10px 20px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 1.5rem;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+		}
+		.container button:hover {
+			background-color: #005f79;
+		}
+		.container form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+			margin-top: 30px;
+			padding: 10px;
+			background-color: #fff;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+			border-radius: 5px;
+		}
+		.container form:first-child {
+			margin-right: 30px;
+		}
+		@media (max-width: 768px) {
+			.container {
+				flex-direction: column;
+				align-items: center;
+			}
+			.container form:first-child {
+				margin-right: 0;
+				margin-bottom: 30px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<header>Video Monitoring System</header>
+	<div class="container">
+        <form method="post" action="{% url 'start' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="task_description">Task description:</label>
+                <input type="text" id="task_description" name="task_description" class="form-control" required style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+            </div>
+    
+          
+    
+            <button type="submit" class="btn btn-primary btn-lg">Start Task</button>
+        </form>
+        <form action="{% url 'stop' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger btn-lg">Stop Task</button>
+        </form>
+    </div>
+    
+	<!-- Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html

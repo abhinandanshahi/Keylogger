@@ -1,0 +1,7 @@
+<form method="post">
+    {% csrf_token %}
+    <label for="task_description">Task description:</label>
+    <input type="text" name="task_description" id="task_description">
+    <br>
+    <button type="submit" name="start_task">Start Task</button>
+</form>
